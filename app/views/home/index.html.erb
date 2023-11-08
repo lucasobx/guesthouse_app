@@ -5,6 +5,10 @@
 </section>
 
 <section>
+  <% if @guesthouses.empty? %>
+    <p>Não há pousadas cadastradas.</p>
+  <% end %>
+  
   <% @guesthouses.each do |g| %>
     <dl>
       <dt><%= link_to g.brand_name, guesthouse_path(g) %></dt>

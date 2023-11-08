@@ -1,16 +1,20 @@
 class GuesthousesController < ApplicationController
-  before_action :guesthouse_params, only: [:create]
   before_action :set_guesthouse, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def show; end
 
   def new
-    @guesthouse = Guesthouse.new
-    @guesthouse.build_address
+    if current_user.guesthouse.present?
+      redirect_to root_path, notice: 'Você já cadastrou uma pousada.'
+    else
+      @guesthouse = Guesthouse.new
+      @guesthouse.build_address
+    end
   end
 
   def create
-    @guesthouse = Guesthouse.new(guesthouse_params)
+    @guesthouse = current_user.build_guesthouse(guesthouse_params)
     if @guesthouse.save
       return redirect_to @guesthouse, notice: 'Pousada cadastrada com sucesso.'
     end

@@ -1,7 +1,17 @@
 require 'rails_helper'
 
 describe 'Usuário cadastra uma pousada' do
+  it 'se estiver autenticado' do
+    visit root_path
+    click_on 'Cadastrar Pousada'
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   it 'a partir da tela inicial' do
+    user = User.create!(name: 'João', email: 'joao@email.com', password: '123456')
+
+    login_as(user)
     visit root_path
     click_on 'Cadastrar Pousada'
 
@@ -21,6 +31,9 @@ describe 'Usuário cadastra uma pousada' do
   end
 
   it 'com sucesso' do
+    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456')
+
+    login_as(user)
     visit root_path
     click_on 'Cadastrar Pousada'
     fill_in 'Nome Fantasia', with: 'Vale Verde'
@@ -53,6 +66,9 @@ describe 'Usuário cadastra uma pousada' do
   end
 
   it 'com dados incompletos' do
+    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456')
+
+    login_as(user)
     visit root_path
     click_on 'Cadastrar Pousada'
     click_on 'Criar Pousada'
