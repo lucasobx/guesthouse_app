@@ -3,3 +3,12 @@
     <%= link_to 'Cadastrar Pousada', new_guesthouse_path %>
   </div>
 </section>
+
+<section>
+  <% @guesthouses.each do |g| %>
+    <dl>
+      <dt><%= link_to g.brand_name, guesthouse_path(g) %></dt>
+      <dd><%= g.address.city %> - <%= g.address.state %></dd>
+    </dl>
+  <% end %>
+</section>

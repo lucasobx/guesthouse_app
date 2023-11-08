@@ -1,6 +1,6 @@
 class GuesthousesController < ApplicationController
   before_action :guesthouse_params, only: [:create]
-  before_action :set_guesthouse, only: [:show]
+  before_action :set_guesthouse, only: [:show, :edit, :update]
 
   def show; end
 
@@ -16,6 +16,16 @@ class GuesthousesController < ApplicationController
     end
     flash.now[:notice] = 'Pousada não cadastrada.'
     render 'new', status: 422
+  end
+
+  def edit; end
+
+  def update
+    if @guesthouse.update(guesthouse_params)
+      return redirect_to @guesthouse, notice: 'Pousada atualizada com sucesso.'
+    end
+    flash.now[:notice] = 'Não foi possível atualizar a pousada.'
+    render 'edit', status: 422
   end
 
   private
