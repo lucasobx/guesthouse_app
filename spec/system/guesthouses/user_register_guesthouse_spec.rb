@@ -51,4 +51,17 @@ describe 'Usuário cadastra uma pousada' do
     expect(page).to have_content '16:00'
     expect(page).to have_content '10:15'
   end
+
+  it 'com dados incompletos' do
+    visit root_path
+    click_on 'Cadastrar Pousada'
+    click_on 'Criar Pousada'
+
+    expect(page).to have_content 'Pousada não cadastrada.'
+    expect(page).to have_content 'Nome Fantasia não pode ficar em branco'
+    expect(page).to have_content 'Razão Social não pode ficar em branco'
+    expect(page).to have_content 'CNPJ não pode ficar em branco'
+    expect(page).to have_content 'Telefone não pode ficar em branco'
+    expect(page).to have_content 'E-mail não pode ficar em branco'
+  end
 end
