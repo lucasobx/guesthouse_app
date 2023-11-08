@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      guesthouse: 'Pousada'
+    attributes:
+      guesthouse:
+        brand_name: 'Nome Fantasia'
+        corporate_name: 'Razão Social'
+        registration_number: 'CNPJ'
+        phone_number: 'Telefone'
+        email: 'E-mail'
+        description: 'Descrição'
+        pets: 'Aceita Pets'
+        use_policy: 'Política de Uso'

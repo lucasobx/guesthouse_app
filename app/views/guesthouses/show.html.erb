@@ -1,0 +1,16 @@
+<h1>Pousada <%= @guesthouse.brand_name %></h1>
+<h2><%= @guesthouse.description %></h>
+
+<dl>
+  <dt>Endereço:</dt>
+  <dd><%= @guesthouse.address.street %> - <%= @guesthouse.address.neighborhood %>, 
+      <%= @guesthouse.address.city %> - <%= @guesthouse.address.state %></dd>
+  <dt>Checkin:</dt>
+  <dd><%= @guesthouse.checkin.strftime("%H:%M") %></dd>
+  <dt>Checkout:</dt>
+  <dd><%= @guesthouse.checkout.strftime("%H:%M") %></dd>
+  <dt>Pets:</dt>
+  <dd><%= @guesthouse.pets ? 'Permitido' : 'Proibido' %></dd>
+  <dt>Política de Uso:</dt>
+  <dd><%= @guesthouse.use_policy %></dd>
+</dl>

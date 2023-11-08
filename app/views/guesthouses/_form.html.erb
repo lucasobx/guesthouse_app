@@ -1,0 +1,100 @@
+<%= form_with model: @guesthouse do |f| %>
+  <fieldset>
+    <legend>Dados</legend>
+    <div>
+      <%= f.label :brand_name %>
+      <%= f.text_field :brand_name %>
+    </div>
+
+    <div>
+      <%= f.label :corporate_name %>
+      <%= f.text_field :corporate_name %>
+    </div>
+
+    <div>
+      <%= f.label :registration_number %>
+      <%= f.text_field :registration_number %>
+    </div>
+
+    <div>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+    </div>
+
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+  <fieldset>
+
+  <fieldset>
+    <legend>Endereço</legend>
+    <%= f.fields_for :address do |af| %>
+      <div>
+        <%= af.label :street, 'Logradouro' %>
+        <%= af.text_field :street %>
+      </div>
+
+      <div>
+        <%= af.label :neighborhood, 'Bairro' %>
+        <%= af.text_field :neighborhood %>
+      </div>
+
+      <div>
+        <%= af.label :city, 'Cidade' %>
+        <%= af.text_field :city %>
+      </div>
+
+      <div>
+        <%= af.label :state, 'Estado' %>
+        <%= af.select :state, Address.states.keys.map { |state| [state.to_s, state] } %>
+      </div>
+
+      <div>
+        <%= af.label :postal_code, 'CEP' %>
+        <%= af.text_field :postal_code %>
+      </div>
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Dados Adicionais</legend>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.label :use_policy %>
+      <%= f.text_area :use_policy %>
+    </div>
+
+    <div>
+      <%= f.label :pets %>
+      <%= f.check_box :pets %>
+    </div>
+
+    <div>
+      <%= f.label :status %>
+      <%= f.check_box :status %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Horários</legend>
+      <div>
+        <%= f.label :status %>
+        <%= f.time_select :checkin %>
+      </div>
+
+      <div>
+        <%= f.label :status %>
+        <%= f.time_select :checkout %>
+      </div>
+  </fieldset>
+
+  <div>
+    <%= f.submit 'Criar Pousada' %>
+  </div>
+  
+<% end %>
