@@ -15,5 +15,12 @@
   <dd><%= @guesthouse.use_policy %></dd>
 </dl>
 
-<%= link_to 'Editar Pousada', edit_guesthouse_path %>
+<section>
+  <%= link_to 'Quartos Disponíveis', guesthouse_rooms_path(@guesthouse) %>
+</section>
+
+<% if user_signed_in? && current_user.id == @guesthouse.user_id %>
+  <%= link_to 'Editar Pousada', edit_guesthouse_path(@guesthouse) %>
+  <%= link_to 'Cadastrar Quarto', new_guesthouse_room_path(@guesthouse) %>
+<% end %>
 <%= link_to 'Voltar', root_path %>

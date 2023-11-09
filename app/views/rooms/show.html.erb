@@ -1,0 +1,32 @@
+<h1><%= @room.name %></h1>
+<h3><%= @room.description %></h3>
+
+<dl>
+  <dt>Tamanho:</dt>
+  <dd><%= @room.size %>m</dd>
+  <dt>Acomodação Máxima:</dt>
+  <dd><%= @room.max_capacity %> Hóspedes</dd>
+  <dt>Valor da Diária:</dt>
+  <dd><%= number_to_currency(@room.daily_rate, unit: 'R$', separator: ',', delimiter: '.', format: "%u %n") %></dd>
+  <dt>Banheiro:</dt>
+  <dd><%= @room.bathroom == true ? 'Sim' : 'Não' %></dd>
+  <dt>Varanda:</dt>
+  <dd><%= @room.balcony == true ? 'Sim' : 'Não' %></dd>
+  <dt>Ar Condicionado:</dt>
+  <dd><%= @room.air_conditioning == true ? 'Sim' : 'Não' %></dd>
+  <dt>TV:</dt>
+  <dd><%= @room.tv == true ? 'Sim' : 'Não' %></dd>
+  <dt>Guarda-Roupa:</dt>
+  <dd><%= @room.closet == true ? 'Sim' : 'Não' %></dd>
+  <dt>Cofre:</dt>
+  <dd><%= @room.safe == true ? 'Sim' : 'Não' %></dd>
+  <dt>Acessibilidade:</dt>
+  <dd><%= @room.accessibility == true ? 'Sim' : 'Não' %></dd>
+  <dt>Disponível:</dt>
+  <dd><%= @room.status == true ? 'Sim' : 'Não' %></dd>
+</dl>
+
+<% if user_signed_in? && current_user.id == @guesthouse.user_id %>
+  <%= link_to 'Editar Quarto', edit_guesthouse_path(@guesthouse) %>
+<% end %>
+<%= link_to 'Voltar', root_path %>

@@ -1,0 +1,7 @@
+<ul>
+  <% @available_rooms.each do |r| %>
+    <li><%= link_to r.name, guesthouse_room_path(@guesthouse, r) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Voltar', guesthouse_path(@guesthouse) %>

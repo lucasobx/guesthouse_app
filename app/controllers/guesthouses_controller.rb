@@ -1,6 +1,7 @@
 class GuesthousesController < ApplicationController
   before_action :set_guesthouse, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authorize_user!, only: [:edit, :update]
 
   def show; end
 
@@ -52,5 +53,11 @@ class GuesthousesController < ApplicationController
 
   def set_guesthouse
     @guesthouse = Guesthouse.find(params[:id])
+  end
+
+  def authorize_user!
+    unless @guesthouse.user_id == current_user.id
+      redirect_to root_path, alert: 'Você não tem permissão para editar esta pousada'
+    end
   end
 end
