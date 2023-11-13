@@ -1,8 +1,10 @@
-<section>
-  <div>
-    <%= link_to 'Cadastrar Pousada', new_guesthouse_path %>
-  </div>
-</section>
+<% if user_signed_in? && current_user.owner? %>
+  <section>
+    <div>
+      <%= link_to 'Cadastrar Pousada', new_guesthouse_path %>
+    </div>
+  </section>
+<% end %>
 
 <section>
   <% if @guesthouses.empty? %>
