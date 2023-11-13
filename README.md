@@ -1,24 +1,23 @@
-# README
+# Pousadaria
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Plataforma para busca e reserva de quartos em pousadas.
 
-Things you may want to cover:
+## Tecnologias
+- [Ruby 3.2.2](https://github.com/ruby/ruby)
+- [Ruby on Rails 7](https://github.com/rails/rails)
+- [Capybara](https://github.com/teamcapybara/capybara)
+- [Rspec](https://github.com/rspec/rspec-rails)
+- [Devise](https://github.com/heartcombo/devise)
 
-* Ruby version
+## Funcionalidades
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- ☑ Criar conta como dono de pousada.
+- ☑ Criar conta como visitante.
+- ☑ Dono de pousada pode cadastrar informações sobre sua pousada.
+- ☑ Dono de pousada pode cadastrar informações sobre os quartos disponíveis em sua pousada e determinar preços para cada um.
+- ☑ Donos de pousadas podem personalizar preços por período.
+- ☑ Donos de pousadas podem inativar seus estabelecimento
+- ☑ Pousadas são listadas para os visitantes na tela inicial
+- ☑ Visitantes não autenticados podem ver todos os quartos disponíveis de uma pousada.
+- ☐ Visitantes não autenticados podem buscar pousadas por cidade.
+- ☐ Visitantes não autenticados podem buscar pousadas a partir de qualquer tela pelo seu nome, bairro ou cidade.
