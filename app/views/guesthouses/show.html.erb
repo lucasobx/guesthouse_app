@@ -21,6 +21,12 @@
 </section>
 
 <% if user_signed_in? && current_user.id == @guesthouse.user_id %>
+  <dl>
+    <dt>CNPJ:</dt>
+    <dd><%= @guesthouse.registration_number %></dd>
+    <dt>Razão Social:</dt>
+    <dd><%= @guesthouse.corporate_name %></dd>
+  </dl>
   <%= link_to 'Editar Pousada', edit_guesthouse_path(@guesthouse) %>
   <%= link_to 'Cadastrar Quarto', new_guesthouse_room_path(@guesthouse) %>
 <% end %>

@@ -1,4 +1,4 @@
-<% if user_signed_in? && current_user.owner? %>
+<% if user_signed_in? && current_user.owner? && current_user.guesthouse.nil? %>
   <section>
     <div>
       <%= link_to 'Cadastrar Pousada', new_guesthouse_path %>
@@ -7,14 +7,29 @@
 <% end %>
 
 <section>
-  <% if @guesthouses.empty? %>
-    <p>Não há pousadas cadastradas.</p>
+  <h2>Pousadas Recentes</h2>
+  <% if @recent_guesthouses.empty? %>
+    <p>Não há pousadas recentes.</p>
+  <% else %>
+    <% @recent_guesthouses.each do |guesthouse| %>
+      <dl>
+        <dt><%= link_to guesthouse.brand_name, guesthouse_path(guesthouse) %></dt>
+        <dd><%= guesthouse.address.city %></dd>
+      </dl>
+    <% end %>
   <% end %>
-  
-  <% @guesthouses.each do |g| %>
-    <dl>
-      <dt><%= link_to g.brand_name, guesthouse_path(g) %></dt>
-      <dd><%= g.address.city %> - <%= g.address.state %></dd>
-    </dl>
+</section>
+
+<section>
+  <h2>Outras Pousadas</h2>
+  <% if @other_guesthouses.empty? %>
+    <p>Não há outras pousadas cadastradas.</p>
+  <% else %>
+    <% @other_guesthouses.each do |guesthouse| %>
+      <dl>
+        <dt><%= link_to guesthouse.brand_name, guesthouse_path(guesthouse) %></dt>
+        <dd><%= guesthouse.address.city %></dd>
+      </dl>
+    <% end %>
   <% end %>
 </section>
