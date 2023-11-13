@@ -1,0 +1,10 @@
+<% @period_prices.each do |price| %>
+  <%= form_for price do |f| %>
+    <%= f.date_field :start_date %>
+    <%= f.date_field :end_date %>
+    <%= f.number_field :daily_rate %>
+    <%= f.submit "Salvar" %>
+  <% end %>
+<% end %>
+
+<%= link_to "Adicionar novo período", new_period_price_path(room_id: @room.id) %>

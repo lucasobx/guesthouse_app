@@ -27,6 +27,10 @@
     <dd><%= r.status == true ? 'Sim' : 'Não' %></dd>
   </dl>
 
+<% if user_signed_in? && current_user.owner? %>
+  <%= link_to "Gerenciar Preços por Período", new_guesthouse_room_period_price_path(@guesthouse, r) %>
+<% end %>
+
   <% if user_signed_in? && current_user.id == @guesthouse.user_id %>
     <p><%= link_to "Editar #{r.name}", edit_guesthouse_room_path(@guesthouse, r) %></p>
   <% end %>

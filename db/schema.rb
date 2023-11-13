@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_13_072054) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_13_084816) do
   create_table "addresses", force: :cascade do |t|
     t.string "street"
     t.string "neighborhood"
@@ -42,6 +42,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_072054) do
     t.index ["user_id"], name: "index_guesthouses_on_user_id"
   end
 
+  create_table "period_prices", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.decimal "daily_rate"
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_period_prices_on_room_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -62,6 +72,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_072054) do
     t.index ["guesthouse_id"], name: "index_rooms_on_guesthouse_id"
   end
 
+  create_table "special_prices", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.decimal "daily_rate"
+    t.integer "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_special_prices_on_room_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -78,5 +98,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_072054) do
 
   add_foreign_key "guesthouses", "addresses"
   add_foreign_key "guesthouses", "users"
+  add_foreign_key "period_prices", "rooms"
   add_foreign_key "rooms", "guesthouses"
+  add_foreign_key "special_prices", "rooms"
 end

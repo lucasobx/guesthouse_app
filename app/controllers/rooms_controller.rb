@@ -32,6 +32,10 @@ class RoomsController < ApplicationController
     render 'edit', status: 422
   end
 
+  def manage_period_prices
+    @period_prices = @room.period_prices.order(:start_date)
+  end
+
   private
   def room_params
     params.require(:room).permit(:name, :description, :size, :max_capacity, :daily_rate, 
