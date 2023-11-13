@@ -25,8 +25,3 @@
   <dt>Disponível:</dt>
   <dd><%= @room.status == true ? 'Sim' : 'Não' %></dd>
 </dl>
-
-<% if user_signed_in? && current_user.id == @guesthouse.user_id %>
-  <%= link_to 'Editar Quarto', edit_guesthouse_path(@guesthouse) %>
-<% end %>
-<%= link_to 'Voltar', root_path %>

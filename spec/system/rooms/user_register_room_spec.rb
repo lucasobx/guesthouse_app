@@ -19,8 +19,8 @@ describe 'Usuário cadastra quarto' do
     click_on 'Pousada da Praia'
     click_on 'Cadastrar Quarto'
 
-    fill_in 'Nome', with: 'Quarto 1'
-    fill_in 'Descrição', with: 'Quarto com vista para a praia'
+    fill_in 'Nome', with: 'Suíte'
+    fill_in 'Descrição', with: 'Suíte espaçosa com vista para a praia'
     fill_in 'Tamanho', with: 20
     fill_in 'Acomodação Máxima', with: 2
     fill_in 'Valor da Diária', with: 80
@@ -36,8 +36,8 @@ describe 'Usuário cadastra quarto' do
 
     created_room = Room.last
     expect(current_path).to eq guesthouse_room_path(guesthouse, created_room)
-    expect(page).to have_content 'Quarto 1'
-    expect(page).to have_content 'Quarto com vista para a praia'
+    expect(page).to have_content 'Suíte'
+    expect(page).to have_content 'Suíte espaçosa com vista para a praia'
     expect(page).to have_content 'Tamanho: 20m'
     expect(page).to have_content 'Acomodação Máxima: 2 Hóspedes'
     expect(page).to have_content 'Valor da Diária: R$ 80,00'

@@ -1,5 +1,5 @@
 <h1>Pousada <%= @guesthouse.brand_name %></h1>
-<h3><%= @guesthouse.description %></h3>
+<h2><%= @guesthouse.description %></h2>
 
 <dl>
   <dt>Endereço:</dt>
@@ -16,7 +16,8 @@
 </dl>
 
 <section>
-  <%= link_to 'Quartos Disponíveis', guesthouse_rooms_path(@guesthouse) %>
+  <h3>Quartos Disponíveis:</h3>
+  <%= render 'rooms' %>
 </section>
 
 <% if user_signed_in? && current_user.id == @guesthouse.user_id %>

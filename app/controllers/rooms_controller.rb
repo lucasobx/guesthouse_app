@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_guesthouse
   before_action :authenticate_user!
-  before_action :set_room, only: [:show]
+  before_action :set_room, only: [:show, :edit, :update]
 
   def index
     @available_rooms = @guesthouse.rooms.where(status: true)
@@ -20,6 +20,16 @@ class RoomsController < ApplicationController
     end
       flash.now[:notice] = 'Não foi possível cadastrar o quarto.'
       render 'new', status: 422
+  end
+
+  def edit; end
+
+  def update
+    if @room.update(room_params)
+      return redirect_to @guesthouse, notice: 'Quarto atualizado com sucesso.'
+    end
+    flash.now[:notice] = 'Não foi possível atualizar o quarto'
+    render 'edit', status: 422
   end
 
   private
