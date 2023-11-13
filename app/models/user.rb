@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :guesthouse, dependent: :destroy
+
+  enum role: { visitor: 0, owner: 1 }
 end

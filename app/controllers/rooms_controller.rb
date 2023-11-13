@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_guesthouse
-  before_action :authenticate_user!
+  before_action :authenticate_owner!
   before_action :set_room, only: [:show, :edit, :update]
 
   def index
@@ -41,6 +41,13 @@ class RoomsController < ApplicationController
 
   def set_guesthouse
     @guesthouse = current_user.guesthouse
+  end
+
+  def authenticate_owner!
+    if user_signed_in? && current_user.owner?
+    else
+      redirect_to new_user_session_path, alert: 'Acesso negado'
+    end
   end
 
   def set_room

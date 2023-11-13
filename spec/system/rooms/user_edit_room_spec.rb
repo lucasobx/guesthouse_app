@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário edita um quarto' do
   it 'a partir da página de detalhes' do
-    user = User.create!(name: 'João', email: 'joao@email.com', password: '123456')
+    user = User.create!(name: 'João', email: 'joao@email.com', password: '123456', role: :owner)
     guesthouse = Guesthouse.new(brand_name: 'Pousada da Praia', corporate_name: 'Pousada da Praia LTDA',
                                 registration_number: '41522300', phone_number: '11985456877',
                                 email: 'pousadapraia@email.com', description: 'Pousada do lado da praia',
@@ -39,7 +39,7 @@ describe 'Usuário edita um quarto' do
   end
 
   it 'com sucesso' do
-    user = User.create!(name: 'João', email: 'joao@email.com', password: '123456')
+    user = User.create!(name: 'João', email: 'joao@email.com', password: '123456', role: :owner)
     guesthouse = Guesthouse.new(brand_name: 'Pousada da Praia', corporate_name: 'Pousada da Praia LTDA',
                                 registration_number: '41522300', phone_number: '11985456877',
                                 email: 'pousadapraia@email.com', description: 'Pousada do lado da praia',

@@ -1,6 +1,6 @@
 class GuesthousesController < ApplicationController
   before_action :set_guesthouse, only: [:show, :edit, :update]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_owner!, only: [:new, :create, :edit, :update]
   before_action :authorize_user!, only: [:edit, :update]
 
   def show
@@ -55,6 +55,13 @@ class GuesthousesController < ApplicationController
 
   def set_guesthouse
     @guesthouse = Guesthouse.find(params[:id])
+  end
+
+  def authenticate_owner!
+    if user_signed_in? && current_user.owner?
+    else
+      redirect_to new_user_session_path, alert: 'Acesso negado'
+    end
   end
 
   def authorize_user!

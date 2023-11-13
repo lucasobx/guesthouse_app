@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário edita uma pousada' do
   it 'a partir da página de detalhes' do
-    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456')
+    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456', role: :owner)
     guesthouse = Guesthouse.new(brand_name: 'Pousada da Praia', corporate_name: 'Pousada da Praia LTDA',
                                 registration_number: '41522300', phone_number: '11985456877',
                                 email: 'pousadapraia@email.com', description: 'Descrição', pets: false,
@@ -40,7 +40,7 @@ describe 'Usuário edita uma pousada' do
   end
 
   it 'com sucesso' do
-    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456')
+    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456', role: :owner)
 
     guesthouse = Guesthouse.new(brand_name: 'Pousada da Praia', corporate_name: 'Pousada da Praia LTDA',
                                 registration_number: '41522300', phone_number: '11985456877',
@@ -65,7 +65,7 @@ describe 'Usuário edita uma pousada' do
   end
 
   it 'e mantém os campos obrigatórios' do
-    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456')
+    user = User.create!(name: 'Joao', email: 'joao@email.com', password: '123456', role: :owner)
     
     guesthouse = Guesthouse.new(brand_name: 'Pousada da Praia', corporate_name: 'Pousada da Praia LTDA',
                                 registration_number: '41522300', phone_number: '11985456877',
