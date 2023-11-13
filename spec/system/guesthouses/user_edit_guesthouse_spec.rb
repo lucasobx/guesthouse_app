@@ -7,7 +7,7 @@ describe 'Usuário edita uma pousada' do
                                 registration_number: '41522300', phone_number: '11985456877',
                                 email: 'pousadapraia@email.com', description: 'Descrição', pets: false,
                                 use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                checkout: '20:00', status: true)
+                                checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
     guesthouse.build_address(street: 'Rua da Pousada', neighborhood: 'Praça da Pousada',
                              city: 'São Roque', state: 'SP', postal_code: '10000-000')
 
@@ -37,6 +37,8 @@ describe 'Usuário edita uma pousada' do
     expect(page).to have_select 'guesthouse_checkin_5i', with_options: ['00']
     expect(page).to have_select 'guesthouse_checkout_4i', with_options: ['20']
     expect(page).to have_select 'guesthouse_checkout_5i', with_options: ['00']
+    expect(page).to have_checked_field 'Cartão de Crédito'
+    expect(page).to have_unchecked_field 'Dinheiro'
   end
 
   it 'com sucesso' do
@@ -46,7 +48,7 @@ describe 'Usuário edita uma pousada' do
                                 registration_number: '41522300', phone_number: '11985456877',
                                 email: 'pousadapraia@email.com', description: 'Descrição', pets: false,
                                 use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                checkout: '20:00', status: true)
+                                checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
     guesthouse.build_address(street: 'Rua da Pousada', neighborhood: 'Praça da Pousada',
                              city: 'São Roque', state: 'SP', postal_code: '10000-000')
 

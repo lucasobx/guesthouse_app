@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       guesthouse: 'Pousada'
+      address: 'Endereço'
     attributes:
       guesthouse:
         brand_name: 'Nome Fantasia'
@@ -12,3 +13,15 @@ pt-BR:
         description: 'Descrição'
         pets: 'Aceita Pets'
         use_policy: 'Política de Uso'
+        payment_method: 'Método de Pagamento'
+      address:
+        street: 'Logradouro'
+        neighborhood: 'Bairro'
+        city: 'Cidade'
+        state: 'Estado'
+        postal_code: 'CEP'
+  payment_methods:
+    credit_card: 'Cartão de Crédito'
+    debit_card: 'Cartão de Débito'
+    pix: 'Pix'
+    cash: 'Dinheiro'  

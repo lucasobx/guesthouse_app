@@ -8,7 +8,7 @@ RSpec.describe Guesthouse, type: :model do
                                     registration_number: '41522300', phone_number: '11985456877',
                                     email: 'pousada@email.com', description: 'Descrição', pets: false,
                                     use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                    checkout: '20:00', status: true)
+                                    checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
 
         result = guesthouse.valid?
 
@@ -20,7 +20,7 @@ RSpec.describe Guesthouse, type: :model do
                                     registration_number: '41522300', phone_number: '11985456877',
                                     email: 'pousada@email.com', description: 'Descrição', pets: false,
                                     use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                    checkout: '20:00', status: true)
+                                    checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
 
         result = guesthouse.valid?
 
@@ -32,7 +32,7 @@ RSpec.describe Guesthouse, type: :model do
                                     registration_number: '', phone_number: '11985456877',
                                     email: 'pousada@email.com', description: 'Descrição', pets: false,
                                     use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                    checkout: '20:00', status: true)
+                                    checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
 
         result = guesthouse.valid?
 
@@ -44,7 +44,7 @@ RSpec.describe Guesthouse, type: :model do
                                     registration_number: '41522300', phone_number: '',
                                     email: 'pousada@email.com', description: 'Descrição', pets: false,
                                     use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                    checkout: '20:00', status: true)
+                                    checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
 
         result = guesthouse.valid?
 
@@ -56,7 +56,7 @@ RSpec.describe Guesthouse, type: :model do
                                     registration_number: '41522300', phone_number: '11985456877',
                                     email: '', description: 'Descrição', pets: false,
                                     use_policy: 'Proibido receber visitas', checkin: '10:00',
-                                    checkout: '20:00', status: true)
+                                    checkout: '20:00', status: true, payment_method: ['credit_card', 'pix'])
 
         result = guesthouse.valid?
 

@@ -41,27 +41,27 @@
     <legend>Endereço</legend>
     <%= f.fields_for :address do |af| %>
       <div>
-        <%= af.label :street, 'Logradouro' %>
+        <%= af.label :street %>
         <%= af.text_field :street %>
       </div>
 
       <div>
-        <%= af.label :neighborhood, 'Bairro' %>
+        <%= af.label :neighborhood %>
         <%= af.text_field :neighborhood %>
       </div>
 
       <div>
-        <%= af.label :city, 'Cidade' %>
+        <%= af.label :city %>
         <%= af.text_field :city %>
       </div>
 
       <div>
-        <%= af.label :state, 'Estado' %>
+        <%= af.label :state %>
         <%= af.select :state, Address.states.keys.map { |state| [state.to_s, state] } %>
       </div>
 
       <div>
-        <%= af.label :postal_code, 'CEP' %>
+        <%= af.label :postal_code %>
         <%= af.text_field :postal_code %>
       </div>
     <% end %>
@@ -101,6 +101,14 @@
         <%= f.label :checkout %>
         <%= f.time_select :checkout %>
       </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Métodos de Pagamento</legend>
+      <% Guesthouse::PAYMENT_METHODS.each do |method| %>
+        <%= f.check_box :payment_method, { multiple: true }, method, nil %>
+        <%= f.label :payment_method, I18n.t("payment_methods.#{method}"), value: method %>
+      <% end %>
   </fieldset>
 
   <div>

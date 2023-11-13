@@ -46,7 +46,7 @@ class RoomsController < ApplicationController
   def authenticate_owner!
     if user_signed_in? && current_user.owner?
     else
-      redirect_to new_user_session_path, alert: 'Acesso negado'
+      redirect_to new_user_session_path, alert: 'Acesso negado' unless user_signed_in?
     end
   end
 

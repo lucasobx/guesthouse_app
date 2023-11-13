@@ -49,6 +49,7 @@ class GuesthousesController < ApplicationController
     :checkin,
     :checkout,
     :status,
+    payment_method: [],
     address_attributes: [:id, :street, :neighborhood, :city, :state, :postal_code]
   )
   end
@@ -60,7 +61,7 @@ class GuesthousesController < ApplicationController
   def authenticate_owner!
     if user_signed_in? && current_user.owner?
     else
-      redirect_to new_user_session_path, alert: 'Acesso negado'
+      redirect_to new_user_session_path, alert: 'Acesso negado' unless user_signed_in?
     end
   end
 

@@ -8,4 +8,7 @@ class Guesthouse < ApplicationRecord
   validates_associated :address
   
   accepts_nested_attributes_for :address
+
+  PAYMENT_METHODS = ['credit_card', 'debit_card', 'pix', 'cash'].freeze
+  serialize :payment_method, type: Array, coder: JSON
 end
